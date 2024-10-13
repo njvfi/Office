@@ -18,7 +18,12 @@ namespace Офіс.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Videos()
+        {
+            return View();
+        }
+
+        public IActionResult About_Us()
         {
             return View();
         }
