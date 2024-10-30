@@ -8,14 +8,27 @@ namespace Офіс.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
         {
             _logger = logger;
-        }
+            _webHostEnvironment = webHostEnvironment;
 
+        }
+        #region Navigation
         public IActionResult Index()
         {
-            return View();
+            List<Events> events = new List<Events>();
+            Events event1 = new Events{Name = "Коментатори", Description = "Коміки смішно коментують відео", 
+                                       Place = "UNICA", Cost = "Безкоштовно", RegistrationLink = "Типу посилання", 
+                                       ImageName = "Commentators.jpg"};
+            events.Add(event1);
+            EventListViewModel model = new EventListViewModel
+            {
+                Events = events
+            };
+            return View(model);
         }
 
         public IActionResult Videos()
@@ -26,6 +39,13 @@ namespace Офіс.Controllers
         public IActionResult About_Us()
         {
             return View();
+        }
+        #endregion
+
+        public ActionResult DisplayImage(string imageName)
+        {
+            string path = Path.Combine("EventPics", imageName);
+            return File(path,"image/jpeg");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

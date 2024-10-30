@@ -1,8 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Events";
 }
+@model Офіс.Models.EventListViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h2 class="display-4">Welcome</h2>
     <h2 class="display-2">Our Events</h2>
 </div>
+<table class="table">
+    @foreach(var item in Model.Events)
+    {
+        <tr>
+            <td rowspan="6" width="400"> <img src="EventPics/@item.ImageName" alt="Image" height="400" width="400"/> </td>
+            <td> @item.Name </td>
+        </tr>
+        <tr>
+            <td> @item.Description </td>
+        </tr>
+        <tr>
+            <td> @item.Cost </td>
+        </tr>
+        <tr>
+            <td> @item.Place </td>
+        </tr>
+        <tr>
+            <td> @item.RegistrationLink </td>
+        </tr>
+    }
+</table>
+
+<a asp-controller="Home" asp-action="DisplayImage"> Create </a>
