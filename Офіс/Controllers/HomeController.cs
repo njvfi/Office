@@ -16,7 +16,7 @@ namespace Офіс.Controllers
             _webHostEnvironment = webHostEnvironment;
 
         }
-        #region Navigation
+        #region Navigation & Constructors 
         public IActionResult Index()
         {
             List<Events> events = new List<Events>();
@@ -41,12 +41,6 @@ namespace Офіс.Controllers
             return View();
         }
         #endregion
-
-        public ActionResult DisplayImage(string imageName)
-        {
-            string path = Path.Combine("EventPics", imageName);
-            return File(path,"image/jpeg");
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
