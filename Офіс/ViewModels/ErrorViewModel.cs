@@ -1,4 +1,4 @@
-namespace Офіс.Models
+namespace Офіс.ViewModels
 {
     public class ErrorViewModel
     {

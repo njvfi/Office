@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Офіс.Models;
+using Офіс.DAL.Entities;
+using Офіс.ViewModels;
 
 namespace Офіс.Controllers
 {

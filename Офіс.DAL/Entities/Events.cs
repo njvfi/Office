@@ -1,4 +1,4 @@
-﻿namespace Офіс.Models
+﻿namespace Офіс.DAL.Entities
 {
     public class Events
     {

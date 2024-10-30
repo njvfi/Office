@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using Офіс.Controllers;
+using Офіс.DAL.Entities;
 
-namespace Офіс.Models
+namespace Офіс.ViewModels
 {
 	public class EventListViewModel
 	{
