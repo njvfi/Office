@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using Офіс.Models;
+using Офіс.DAL.Contexts;
+using Офіс.DAL.Entities;
+using Офіс.DAL.Repositories;
+using Офіс.ViewModels;
 
 namespace Офіс.Controllers
 {
@@ -10,20 +14,23 @@ namespace Офіс.Controllers
 
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
+        private readonly EventsRepository _eventsRepository;
+        private readonly EventsContext _eventsContext;
+
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment, EventsRepository eventsRepository)
         {
             _logger = logger;
             _webHostEnvironment = webHostEnvironment;
-
+            _eventsRepository = eventsRepository;
         }
         #region Navigation & Constructors 
         public IActionResult Index()
         {
-            List<Events> events = new List<Events>();
-            Events event1 = new Events{Name = "Коментатори", Description = "Коміки смішно коментують відео", 
+            List<Events> events = _eventsRepository.GetEvents();
+            /*Events event1 = new Events{Name = "Коментатори", Description = "Коміки смішно коментують відео", 
                                        Place = "UNICA", Cost = "Безкоштовно", RegistrationLink = "Типу посилання", 
                                        ImageName = "Commentators.jpg"};
-            events.Add(event1);
+            events.Add(event1);*/
             EventListViewModel model = new EventListViewModel
             {
                 Events = events
