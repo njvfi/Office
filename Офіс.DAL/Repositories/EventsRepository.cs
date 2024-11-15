@@ -21,7 +21,7 @@ namespace Офіс.DAL.Repositories
 
         public void Init()
         {
-            List<Events> events = GetEvents();
+            List<Events> events = GetAllEvents();
             if (events.Count == 0)
             {
                 Events event1 = new Events
@@ -37,10 +37,21 @@ namespace Офіс.DAL.Repositories
                 _eventsContext.SaveChanges();
             }
         }
+        public Events GetEvent(int id)
+        {
+            Events events = _eventsContext.Events.FirstOrDefault(e => e.Id == id);
+            return events;
+        }
 
-        public List<Events> GetEvents()
+        public List<Events> GetAllEvents()
         {
             return _eventsContext.Events.ToList();
+        }
+
+        public void CreateEvent(Events events)
+        {
+            _eventsContext.Add(events);
+            _eventsContext.SaveChanges();
         }
     }
 }

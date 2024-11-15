@@ -7,26 +7,27 @@
     <h2 class="display-4">Welcome</h2>
     <h2 class="display-2">Our Events</h2>
 </div>
-<table class="table">
-    @foreach(var item in Model.Events)
-    {
-        <tr>
-            <td rowspan="6" width="400"> <img src="EventPics/@item.ImageName" alt="Image" height="400" width="400"/> </td>
-            <td> @item.Name </td>
-        </tr>
-        <tr>
-            <td> @item.Description </td>
-        </tr>
-        <tr>
-            <td> @item.Cost </td>
-        </tr>
-        <tr>
-            <td> @item.Place </td>
-        </tr>
-        <tr>
-            <td> @item.RegistrationLink </td>
-        </tr>
-    }
-</table>
 
-<a asp-controller="Home" asp-action="DisplayImage"> Create </a>
+<div class="event-list">
+    @foreach (var item in Model.Events)
+    {
+        <div class="card" style="margin: 10px; cursor: pointer;" onclick="location.href='@Url.Action("Event", "Home", new { id = item.Id })'">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="EventPics/@item.ImageName" class="card-img" alt="Image" height="400" width="400" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p class="card-text">Скільки? @item.Cost</p>
+                        <p class="card-text">Де? @item.Place</p>
+                        <p class="card-text">Реєстрація: <a href="@item.RegistrationLink" target="_blank">@item.RegistrationLink</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-controller="Home" asp-action="Create" class="btn btn-primary">Create</a>

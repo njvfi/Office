@@ -1,0 +1,15 @@
+﻿@*
+*@
+@{
+}
+@model Офіс.DAL.Entities.Events
+<table class="table">
+	<tr> <td><img src="~/EventPics/@Model.ImageName" /></td> </tr>
+	<tr> <td align="center">@Model.Name</td> </tr>
+	<tr> <td align="center">@Model.Description</td> </tr>
+	<tr> <td align="center">Де? @Model.Place</td> </tr>
+	<tr> <td align="center">Коли? @Model.DateTime</td> </tr>
+	<tr> <td align="center">Скільки? @Model.Cost</td> </tr>
+	<tr> <td align="center">@Model.RegistrationLink</td> </tr>
+</table>
+<a asp-action="Index" asp-controller="Home">До всіх івентів</a>
