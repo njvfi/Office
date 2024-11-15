@@ -1,0 +1,36 @@
+﻿@{
+}
+@model Офіс.ViewModels.CreateViewModel
+<form asp-action="Create" asp-controller="Home" method="post" enctype="multipart/form-data">
+	<p>
+		<label asp-for="Name">Name</label>
+		<input type="text" asp-for="Name"/>
+	</p>
+	<p>
+		<label asp-for="Description">Description</label>
+		<input type="text" asp-for="Description" />
+	</p>
+	<p>
+		<label asp-for="Cost">Cost</label>
+		<input type="text" asp-for="Cost" />
+	</p>
+	<p>
+		<label asp-for="DateTime">DateTime</label>
+		<input type="datetime-local" asp-for="DateTime"/>
+	</p>
+	<p>
+		<label asp-for="Place">Place</label>
+		<input type="text" asp-for="Place" />
+	</p>
+	<p>
+		<label asp-for="RegistrationLink">Link</label>
+		<input type="text" asp-for="RegistrationLink" />
+	</p>
+	<p>
+		<label asp-for="Image">Image</label>
+		<input type="file" asp-for="Image"/>
+	</p>
+	<p>
+		<input type="submit" value="Submit"/>
+	</p>
+</form>

@@ -1,8 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Events";
 }
+@model Офіс.ViewModels.EventListViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-4">Welcome</h2>
+    <h2 class="display-2">Our Events</h2>
 </div>
+
+<div class="event-list">
+    @foreach (var item in Model.Events)
+    {
+        <div class="card" style="margin: 10px; cursor: pointer;" onclick="location.href='@Url.Action("Event", "Home", new { id = item.Id })'">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="EventPics/@item.ImageName" class="card-img" alt="Image" height="400" width="400" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p class="card-text">Скільки? @item.Cost</p>
+                        <p class="card-text">Де? @item.Place</p>
+                        <p class="card-text">Реєстрація: <a href="@item.RegistrationLink" target="_blank">@item.RegistrationLink</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-controller="Home" asp-action="Create" class="btn btn-primary">Create</a>
