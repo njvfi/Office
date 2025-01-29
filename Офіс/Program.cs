@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
 using System.Text;
 using Îô³ñ.DAL.Contexts;
+using Îô³ñ.DAL.Entities;
 using Îô³ñ.DAL.Repositories;
+using Îô³ñ.Services;
 
 internal class Program
 {
@@ -20,6 +23,10 @@ internal class Program
         builder.Services.AddScoped<EventsRepository>();
 
         builder.Services.AddDbContext<EventsContext>(options => options.UseSqlServer(connection));
+
+        builder.Services.AddIdentity<Users, IdentityRole>()
+            .AddEntityFrameworkStores<UsersContext>()
+            .AddDefaultTokenProviders();
 
         builder.Services.AddScoped<UsersRepository>();
 

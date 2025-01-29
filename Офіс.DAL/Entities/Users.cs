@@ -1,6 +1,8 @@
-﻿namespace Офіс.DAL.Entities
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Офіс.DAL.Entities
 {
-    public class Users
+    public class Users : IdentityUser
     {
         public int Id { get; set; }
         public string Username { get; set; }

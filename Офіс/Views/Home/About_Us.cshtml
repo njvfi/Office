@@ -2,3 +2,16 @@
 	ViewData["Title"] = "About us";
 }
 <h1 class="display-2">About Us</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+	<h1>Welcome user</h1>
+	if (User.IsInRole("Member"))
+	{
+		<h1>Welcome, office member</h1>
+	}
+}
+<!--
+<a asp-controller ="User" asp-action="UpgradeRole">Upgrade Role</a>
+<a asp-controller="User" asp-action="DowngradeRole">Downgrade Role</a>
+-->

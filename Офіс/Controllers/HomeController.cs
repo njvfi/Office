@@ -48,7 +48,6 @@ namespace Офіс.Controllers
             };
             return View(model);
         }
-        [AllowAnonymous]
         public IActionResult Videos()
         {
             return View();
@@ -66,12 +65,10 @@ namespace Офіс.Controllers
             Events events = _eventsRepository.GetEvent(id);
             return View(events);
         }
-        
         public IActionResult Create()
         {
             return View(new CreateViewModel());
         }
-        
         [HttpPost]
         public async Task<IActionResult> Create(CreateViewModel model)
         {
@@ -107,6 +104,7 @@ namespace Офіс.Controllers
             return RedirectToAction("Index");
         }
 
+        /*
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
@@ -120,11 +118,11 @@ namespace Офіс.Controllers
         {
             return View();
         }
-
+        */
         #endregion
-
+        /*
         #region User
-
+        
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login(LoginModel login)
@@ -158,6 +156,11 @@ namespace Офіс.Controllers
             }
             return Unauthorized();
         }
+        
+        public IActionResult AssignRole(int UserId, Role role)
+        {
+            return RedirectToAction("Index");
+        }
 
         [AllowAnonymous]
         [HttpPost]
@@ -165,13 +168,6 @@ namespace Офіс.Controllers
         {
             if (!ModelState.IsValid)
                 return View(user);
-            /*if (string.IsNullOrEmpty(user.Email) ||
-                string.IsNullOrEmpty(user.Username) ||
-                string.IsNullOrEmpty(user.Password) ||
-                string.IsNullOrEmpty(user.Repeat))
-                return View(user);
-            if (_usersRepository.EmailCheck(user.Email)) return BadRequest("Користувач з таким Email уже існує");
-            if (_usersRepository)*/
             switch(_usersRepository.UserCheck(user))
             {
                 case "email": return BadRequest("Користувач з таким Email вже існує");
@@ -188,7 +184,15 @@ namespace Офіс.Controllers
             _usersRepository.Login(model);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("X-Access-Token");
+
+            return RedirectToAction("Index", "Home");
+        }
         #endregion
+        */
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
