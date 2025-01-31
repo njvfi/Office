@@ -138,6 +138,7 @@ namespace Офіс.Controllers
         }
         #endregion
 
+        [AllowAnonymous]
         public IActionResult Logout()
         {
             Response.Cookies.Delete("X-Access-Token");

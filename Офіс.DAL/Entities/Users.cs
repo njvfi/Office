@@ -2,7 +2,7 @@
 
 namespace Офіс.DAL.Entities
 {
-    public class Users : IdentityUser
+    public class Users //: IdentityUser
     {
         public int Id { get; set; }
         public string Username { get; set; }

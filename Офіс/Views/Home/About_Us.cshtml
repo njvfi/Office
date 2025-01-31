@@ -10,6 +10,10 @@
 	{
 		<h1>Welcome, office member</h1>
 	}
+	if(User.IsInRole("User"))
+	{
+		<h1>Welcome, office site user</h1>
+	}
 }
 <!--
 <a asp-controller ="User" asp-action="UpgradeRole">Upgrade Role</a>

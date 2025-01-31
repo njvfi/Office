@@ -24,7 +24,7 @@ internal class Program
 
         builder.Services.AddDbContext<EventsContext>(options => options.UseSqlServer(connection));
 
-        builder.Services.AddIdentity<Users, IdentityRole>()
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>()
             .AddEntityFrameworkStores<UsersContext>()
             .AddDefaultTokenProviders();
 
@@ -84,6 +84,7 @@ internal class Program
         app.UseRouting();
 
         app.UseAuthorization();
+        app.UseAuthentication();
 
         app.MapControllerRoute(
             name: "default",

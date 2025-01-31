@@ -67,7 +67,9 @@ namespace Офіс.DAL.Repositories
         
         public bool Login(LoginModel user)
         {
-            var result = _context.Users.FirstOrDefault(u => (u.Username == user.Username || u.Email == user.Username) && u.Password == user.Password);
+            var allUsers = _context.Users.ToList();
+            var result = _context.Users.FirstOrDefault(u => (u.Username == user.Username /*|| u.Email == user.Username*/) && u.Password == user.Password);
+            var debug = 1;
             user.Id = result.Id;
             return result != null;
         }
