@@ -8,6 +8,64 @@ html {
   }
 }
 
+.index-container {
+    display: flex; /* Enables Flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #000000; /* Optional: background color for visibility */
+}
+
+.index-text {
+    font-size: 100px; /* Optional: adjust font size */
+    color: #000000; /* Optional: text color */
+    font-family: DollarBill;
+    font: bold;
+    text-shadow:
+    /* Outline */
+        -1px -1px 0 #fd6909, 
+        1px -1px 0 #fd6909, 
+        -1px 1px 0 #fd6909, 
+        1px 1px 0 #fd6909, 
+        -2px 0 0 #fd6909, 
+        2px 0 0 #fd6909, 
+        0 2px 0 #fd6909, 
+        0 -2px 0 #fd6909;
+}
+
+.navbar-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.navbar-text {
+    font-size: 16px; /* Optional: adjust font size */
+    color: black; /* Optional: text color */
+    font-family: DollarBill;
+    font: bold;
+    text-shadow:
+    /* Outline */
+        -1px -1px 0 #fd6909, 
+        1px -1px 0 #fd6909, 
+        -1px 1px 0 #fd6909, 
+        1px 1px 0 #fd6909, 
+        -2px 0 0 #fd6909, 
+        2px 0 0 #fd6909, 
+        0 2px 0 #fd6909, 
+        0 -2px 0 #fd6909;
+}
+
+@font-face {
+    font-family: 'DollarBill'; /* Name you want to use for the font */
+    src: url('dollar-bill/Dollar Bill.otf') format('opentype'), /* Replace 'your-font-file.woff' with the actual file name */
+    url('dollar-bill/Dollar Bill.ttf') format('truetype'); /* Replace 'your-font-file.ttf' with the actual file name */
+    font-weight: normal; /* Specify the weight */
+    font-style: normal; /* Specify the style */
+}
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -18,5 +76,6 @@ html {
 }
 
 body {
+  background-color: #000000;
   margin-bottom: 60px;
 }

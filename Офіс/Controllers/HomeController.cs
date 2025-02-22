@@ -13,7 +13,7 @@ namespace Офіс.Controllers
     {
         //TODO Main page +
         //TODO About us +
-        //TODO Photo +
+        //TODO Photos +
         //TODO Where to watch? +
         //TODO Contacts +
 
