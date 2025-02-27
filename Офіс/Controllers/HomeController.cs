@@ -11,7 +11,6 @@ namespace Офіс.Controllers
 {
     public class HomeController : Controller
     {
-        //TODO Main page +
         //TODO About us +
         //TODO Photos +
         //TODO Where to watch? +

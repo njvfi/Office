@@ -8,6 +8,12 @@ html {
   }
 }
 
+.centered-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
 .index-container {
     display: flex; /* Enables Flexbox */
     flex-direction: column;
@@ -34,17 +40,21 @@ html {
         0 -2px 0 #fd6909;
 }
 
-.navbar-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    margin-top: 10px;
+    text-decoration: none;
 }
 
 .navbar-text {
-    font-size: 16px; /* Optional: adjust font size */
+    font-size: 20px; /* Optional: adjust font size */
     color: black; /* Optional: text color */
     font-family: DollarBill;
     font: bold;
+    text-decoration: none;
     text-shadow:
     /* Outline */
         -1px -1px 0 #fd6909, 
@@ -55,6 +65,63 @@ html {
         2px 0 0 #fd6909, 
         0 2px 0 #fd6909, 
         0 -2px 0 #fd6909;
+    padding: 0px;
+}
+
+.about-us-circle {
+    position: absolute;
+    top: 5px;
+    left: 495px;
+    width: 880px;
+    height: 800px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 50%; /* Makes it a perfect circle */
+    background-color: #fd6909; /* Your desired background color */
+    filter: blur(90px); /* Applies a 10px blur */
+    z-index: -1;
+}
+
+.centered {
+    display: block;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centered-text-box {
+    display: flex;
+    margin-left: 150px;
+    width: 900px;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    z-index: 2;
+}
+
+.about-us-text {
+    color: white;
+    text-align: center;
+    z-index: 2;
+    font-size: 25px;
+}
+
+
+.about-us-photo-box {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    align-items: center;
+    justify-content: end;
+    background-color: black;
+    box-shadow: #fd6909 1px 1px, #fd6909 -1px 1px, #fd6909 1px -1px, #fd6909 -1px -1px;
+    margin-right: 70px;
+    margin-left: 70px;
+    margin-top: 100px;
 }
 
 @font-face {
